@@ -24,7 +24,7 @@ async function run() {
     const TaskCollection = client.db("TO-DO-List").collection("Tasks");
 
     // get api to read all Task
-    //http://localhost:5000/Tasks
+    //https://quiet-coast-74247.herokuapp.com/Tasks
     app.get("/Tasks", async (req, res) => {
       const query = req.query;
       const cursor = TaskCollection.find(query);
@@ -38,7 +38,7 @@ async function run() {
     //     "taskName": "name",
     //     "taskDescription": "description"
     // }
-    //http://localhost:5000/Task
+    //https://quiet-coast-74247.herokuapp.com/Task
     app.post("/Task", async (req, res) => {
       const data = req.body;
       const result = await TaskCollection.insertOne(data);
@@ -46,7 +46,7 @@ async function run() {
     });
 
     // delete Task
-    //http://localhost:5000/Task/6262dcd73f629a282aaba2e6
+    //https://quiet-coast-74247.herokuapp.com/Task/6262dcd73f629a282aaba2e6
     app.delete("/Task/:id", async (req, res) => {
       const id = req.params.id;
       const filter = { _id: ObjectId(id) };
